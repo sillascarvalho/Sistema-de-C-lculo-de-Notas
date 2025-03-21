@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Cálculo de Notas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #444;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .result {
+            margin-top: 20px;
+            background: #e8f5e9;
+            padding: 15px;
+            border-radius: 4px;
+            border: 1px solid #c8e6c9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Sistema de Cálculo de Notas</h1>
+        <form method="post" action="/">
+            <label for="nome">Nome do aluno:</label>
+            <input type="text" id="nome" name="nome" placeholder="Digite o nome do aluno" required>
+
+            <label for="notas">Notas (separadas por vírgula):</label>
+            <input type="text" id="notas" name="notas" placeholder="Exemplo: 7.5, 8.0, 6.0" required>
+
+            <button type="submit">Calcular</button>
+        </form>
+
+        {% if resultado %}
+        <div class="result">
+            <h2>Resultado</h2>
+            <p><strong>Aluno:</strong> {{ resultado.nome }}</p>
+            <p><strong>Notas:</strong> {{ resultado.notas }}</p>
+            <p><strong>Média:</strong> {{ resultado.media }}</p>
+            <p><strong>Status:</strong> {{ resultado.status }}</p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
