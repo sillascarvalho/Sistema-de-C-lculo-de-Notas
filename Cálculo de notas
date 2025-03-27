@@ -1,0 +1,25 @@
+def calcular_media(notas):
+    return sum(notas) / len(notas)
+
+def main():
+    print("Sistema de Cálculo de Notas")
+    nome = input("Digite o nome do aluno: ")
+    quantidade_notas = int(input("Quantas notas deseja inserir? "))
+
+    notas = []
+    for i in range(quantidade_notas):
+        nota = float(input(f"Digite a nota {i + 1}: "))
+        notas.append(nota)
+
+    media = calcular_media(notas)
+    media_minima = 7.0  # Média mínima para aprovação
+    status = "Aprovado" if media >= media_minima else "Reprovado"
+
+    print("\n--- Resultado ---")
+    print(f"Aluno: {nome}")
+    print(f"Notas: {notas}")
+    print(f"Média: {media:.2f}")
+    print(f"Status: {status}")
+
+if __name__ == "__main__":
+    main()
